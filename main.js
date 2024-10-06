@@ -15,36 +15,32 @@ button.addEventListener('click', function(){
 
         let articles = outputObj['articles']
         let resultTxt = ''
-        for (let i = 0; i < 20; i++){
-            let title = articles[i]['title']
-            let author = articles[i]['author']
-            let publishDate = articles[i]['publishedAt']
-            let url = articles[i]['url']
-            let content = articles[i]['content']
-            let image = articles[i]['urlToImage']
 
-            resultTxt += `
-            <div style="margin-bottom: 20px;">
-                <img src="${image}" class="thumbnail">
-                <div>
-                    <h3 class="aTitle"> ${title}</h3><br>
-                    <span class="aAuthor">${author}</span>
-                    <span> ${publishDate} —— </span>
-                    <span> more</span><br>
-                    <a>${content} </a>
+        for (let i = 0; i < articles.length; i++){
+            console.log(xhr.status)
+            let title = articles[i]['title'] || 'No title available';
+            let author = articles[i]['author'] || 'Unknown author';
+            let publishDate = articles[i]['publishedAt'] || 'Unknown date';
+            let url = articles[i]['url'] || '#';
+            let content = articles[i]['content'] || 'No content available';
+            let image = articles[i]['urlToImage'] || 'default_image.jpg';
+
+            if (title.toLowerCase().includes(keyword.toLowerCase()) || author.toLowerCase().includes(keyword.toLowerCase()) || content.toLowerCase().includes(keyword.toLowerCase()))
+                resultTxt += `
+                <div style="margin-bottom: 20px;">
+                    <img src="${image}" class="thumbnail">
+                    <div>
+                        <h3 class="aTitle"> ${title}</h3><br>
+                        <span class="aAuthor">${author}</span>
+                        <span> ${publishDate} —— </span>
+                        <a href="${url}"> more</a><br>
+                        <a>${content} </a>
+                    </div>
                 </div>
-            </div>
-            `
+                `
+
         }
         result.innerHTML = resultTxt
     }
     xhr.send()
 })
-
-function notNull(articles){
-    let notNull = articles.filter((item) =>{
-        return item && typeof item === 'string'
-    })
-
-    return notNull
-}
