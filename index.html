@@ -12,6 +12,7 @@
 
         :root {
             font-family: 'helvetica';
+            font-weight: unset;
         }
 
         .layer {
@@ -23,7 +24,26 @@
         .title {
             margin: 10px 0 10px;
         }
-        
+        .newsSource {
+            color: gray;
+        }
+        #result {
+            text-align: left;
+            margin-top: 20px;
+            width: 800px;
+
+            display: flex;
+        }
+        .thumbnail {
+            width: 20%;
+        }
+        .aTitle {
+            margin-left: 10px;
+        }
+        .aAuthor {
+            margin-left: 10px;
+            font-style: italic;
+        }
     </style>
 </head>
 <body>
@@ -31,7 +51,19 @@
         <h3 class="title">News Search</h3>
         <span class="newsSource">—— http://https://newsapi.org</span><br/><br/><br/>
         <input type="text" size="60px" id="searchInput"><button id="searchButton">search</button>
+        <br>
+        <div id="result">
+            <div>
+            <h3 class="aTitle"> Tech VC Ben Horowitz Flips On Trump: Will Make 'Significant’ Donation To Kamala Harris</h3><br>
+            <span class="aAuthor">Antonio Pequeño IV</span>
+            <span> 2024-10-05T14:57:24Z —— </span>
+            <span> more</span><br>
+            <a>Ben Horowitz and his wife will make a significant donation to Vice President Kamala Harris, according to a tweet from the co-founder of Andreessen Horowitz, a notable reversal of his support for form… </a>
+            </div>
+            <img src="https://imageio.forbes.com/specials-images/imageserve/670152e58866c512ffe1a975/0x0.jpg?format=jpg&crop=3553,2370,x1,y0,safe&height=900&width=1600&fit=bounds" class="thumbnail">
+        </div>
     </div>
+    
     <script src="main.js"></script>
 </body>
 </html>
