@@ -4,8 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body, h3 {
+            margin: unset;
+            padding: unset;
+        }
+
+        :root {
+            font-family: 'helvetica';
+        }
+
+        .layer {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+        .title {
+            margin: 10px 0 10px;
+        }
+        
+    </style>
 </head>
 <body>
+    <div class="layer">
+        <h3 class="title">News Search</h3>
+        <span class="newsSource">—— http://https://newsapi.org</span><br/><br/><br/>
+        <input type="text" size="60px" id="searchInput"><button id="searchButton">search</button>
+    </div>
     <script src="main.js"></script>
 </body>
 </html>
